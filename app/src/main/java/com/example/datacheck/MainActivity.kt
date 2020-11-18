@@ -13,8 +13,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun goToEmail(view: View) {
-        println("Go to email check")
+    fun goToEmailActivity(view: View) {
+        val intent = Intent(this@MainActivity, EmailActivity::class.java)
+        startActivity(intent)
     }
     fun goToPasswordActivity(view: View) {
         val intent = Intent(this@MainActivity, PasswordActivity::class.java)

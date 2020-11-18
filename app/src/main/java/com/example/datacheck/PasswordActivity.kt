@@ -1,14 +1,9 @@
 package com.example.datacheck
 
-
-
 import android.content.Context
 import android.graphics.Color
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
-import android.view.View.INVISIBLE
-import android.view.View.VISIBLE
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_password.*
@@ -17,10 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.io.InputStreamReader
 import java.math.BigInteger
-import java.net.HttpURLConnection
-import java.net.URL
 import java.security.MessageDigest
 
 
@@ -34,6 +26,7 @@ class PasswordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_password)
 
     }
+
 
     fun checkPassword(view: View) {
 
