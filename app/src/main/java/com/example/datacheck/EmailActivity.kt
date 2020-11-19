@@ -37,6 +37,9 @@ class EmailActivity : AppCompatActivity() {
         val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
 
+        resultText.text = ""
+        resultTextDetails.text = ""
+
         email =  editTextEmail.text.toString()
 
         if (email.isEmailValid()){
@@ -83,7 +86,6 @@ class EmailActivity : AppCompatActivity() {
 
         }else{
             resultTextDetails.text = "Please enter a valid Email"
-            resultTextDetails.setTextColor(Color.parseColor("#db2b1f"))
 
         }
 

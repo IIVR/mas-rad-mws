@@ -35,59 +35,70 @@ class PasswordActivity : AppCompatActivity() {
         resultText.text = ""
         resultTextDetails.text = ""
         // Hide Keyboard
-        val inputManager:InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
+        val inputManager: InputMethodManager =
+            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(
+            currentFocus?.windowToken,
+            InputMethodManager.SHOW_FORCED
+        )
 
         password = editTextPassword.text.toString()
-        hashPassword =  getSHA1(password).toUpperCase()
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.pwnedpasswords.com")
-            .addConverterFactory(ScalarsConverterFactory.create())
-            .build()
+        if (password.isNotEmpty()) {
 
-        val service: HIBPService = retrofit.create(HIBPService::class.java)
+            hashPassword = getSHA1(password).toUpperCase()
 
-        val call:Call<String> = service.getPasswords(hashPassword.take(5))
+            val retrofit = Retrofit.Builder()
+                .baseUrl("https://api.pwnedpasswords.com")
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build()
 
-        call.enqueue(object: Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
+            val service: HIBPService = retrofit.create(HIBPService::class.java)
 
-                println("reponse: ${response.body()}")
+            val call: Call<String> = service.getPasswords(hashPassword.take(5))
 
-                val result: String? = response.body()
-                var exposedPass = false
-                var nbExpose = 0
+            call.enqueue(object : Callback<String> {
+                override fun onResponse(call: Call<String>, response: Response<String>) {
 
-                if (result !=  null && result.isNotEmpty()){
+                    println("reponse: ${response.body()}")
 
-                    val arrayHash = result.lines()
-                    for (hash in arrayHash){
+                    val result: String? = response.body()
+                    var exposedPass = false
+                    var nbExpose = 0
 
-                        if(hashPassword.takeLast(35) == hash.substringBefore(':')){
-                            exposedPass = true
-                            nbExpose = hash.substringAfter(':').toInt()
-                            break
+                    if (result != null && result.isNotEmpty()) {
+
+                        val arrayHash = result.lines()
+                        for (hash in arrayHash) {
+
+                            if (hashPassword.takeLast(35) == hash.substringBefore(':')) {
+                                exposedPass = true
+                                nbExpose = hash.substringAfter(':').toInt()
+                                break
+                            }
+                        }
+
+                        if (exposedPass) {
+                            resultText.text = "Oh no — pwned!"
+                            resultText.setTextColor(Color.parseColor("#db2b1f"))
+                            resultTextDetails.text = "This password has been seen $nbExpose times before"
+
+                        } else {
+                            resultText.text = "Good news — no pwnage found!"
+                            resultText.setTextColor(Color.parseColor("#0aad3f"))
                         }
                     }
-
-                    if (exposedPass){
-                        resultText.text = "Oh no — pwned!"
-                        resultText.setTextColor(Color.parseColor("#db2b1f"))
-                        resultTextDetails.text = "This password has been seen $nbExpose times before"
-
-                    }else{
-                        resultText.text = "Good news — no pwnage found!"
-                        resultText.setTextColor(Color.parseColor("#0aad3f"))
-                    }
                 }
-            }
 
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
+                override fun onFailure(call: Call<String>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
 
-        })
+            })
+        }else{
+
+            resultTextDetails.text = "Please enter a valid Password"
+        }
 
 
     }
