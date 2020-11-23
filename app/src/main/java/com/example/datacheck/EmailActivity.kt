@@ -11,17 +11,11 @@ import android.view.inputmethod.InputMethodManager
 import kotlinx.android.synthetic.main.activity_email.*
 import kotlinx.android.synthetic.main.activity_email.resultText
 import kotlinx.android.synthetic.main.activity_email.resultTextDetails
-import kotlinx.android.synthetic.main.activity_password.*
-import org.json.JSONArray
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.net.URLEncoder
-import java.util.*
 import kotlin.collections.ArrayList
 
 class EmailActivity : AppCompatActivity() {
@@ -92,7 +86,7 @@ class EmailActivity : AppCompatActivity() {
 
     fun showDetails(view: View) {
 
-        val intent = Intent(this, BreachDetailsActivity::class.java)
+        val intent = Intent(this, BreachedAccountActivity::class.java)
         intent.putExtra("breachList", breachList)
         intent.putExtra("email", email)
 

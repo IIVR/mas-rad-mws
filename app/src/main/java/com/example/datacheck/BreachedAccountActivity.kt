@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_breach_details.*
+import kotlinx.android.synthetic.main.activity_breached_account.*
 import java.util.*
 
 
-class BreachDetailsActivity : AppCompatActivity() {
+class BreachedAccountActivity : AppCompatActivity() {
 
     private var breachList = ArrayList<DataBreach>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_breach_details)
+        setContentView(R.layout.activity_breached_account)
 
         breachList = intent.getSerializableExtra("breachList") as ArrayList<DataBreach>
 

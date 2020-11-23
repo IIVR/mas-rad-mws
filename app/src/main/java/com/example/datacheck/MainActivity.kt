@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this@MainActivity, PasswordActivity::class.java)
         startActivity(intent)
     }
-    fun goToAbout(view: View) {
-        println("Go to about")
+    fun goToBreachSiteActivity(view: View) {
+        val intent = Intent(this@MainActivity, BreachSiteActivity::class.java)
+        startActivity(intent)
     }
 }
