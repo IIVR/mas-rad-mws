@@ -47,10 +47,14 @@
             android:layout_marginLeft="10dp"
             app:cardElevation="6dp">
 
-            <ListView
-                android:id="@+id/lvBreach"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/breach_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
 
         </androidx.cardview.widget.CardView>
 

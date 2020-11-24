@@ -33,6 +33,7 @@ class EmailActivity : AppCompatActivity() {
         // Hide Keyboard
         val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
+
         btnShowDetails.visibility = View.GONE;
         resultText.text = ""
         resultTextDetails.text = ""
@@ -71,16 +72,13 @@ class EmailActivity : AppCompatActivity() {
                     }
 
                 }
-
                 override fun onFailure(call: Call<List<DataBreach>>, t: Throwable) {
                     println("Fail "+t)
                 }
-
             })
 
         }else{
             resultTextDetails.text = "Please enter a valid Email"
-
         }
     }
 
@@ -89,17 +87,12 @@ class EmailActivity : AppCompatActivity() {
         val intent = Intent(this, BreachedAccountActivity::class.java)
         intent.putExtra("breachList", breachList)
         intent.putExtra("email", email)
-
         startActivity(intent)
 
     }
 
-
     private fun String.isEmailValid(): Boolean {
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
     }
-
-
-
 
 }

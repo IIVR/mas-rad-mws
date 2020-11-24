@@ -16,4 +16,7 @@ interface HIBPService {
     @GET("api/v3/breachedaccount/{email}?truncateResponse=false")
     fun getEmail(@Path("email") email: String?): Call<List<DataBreach>>
 
+    @GET("api/v3/breaches")
+    fun getAllBreaches(): Call<List<DataBreach>>
+
 }

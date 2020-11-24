@@ -35,12 +35,8 @@ class PasswordActivity : AppCompatActivity() {
         resultText.text = ""
         resultTextDetails.text = ""
         // Hide Keyboard
-        val inputManager: InputMethodManager =
-            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputManager.hideSoftInputFromWindow(
-            currentFocus?.windowToken,
-            InputMethodManager.SHOW_FORCED
-        )
+        val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(currentFocus?.windowToken, InputMethodManager.SHOW_FORCED)
 
         password = editTextPassword.text.toString()
 
@@ -96,10 +92,8 @@ class PasswordActivity : AppCompatActivity() {
 
             })
         }else{
-
             resultTextDetails.text = "Please enter a valid Password"
         }
-
 
     }
 
@@ -120,8 +114,5 @@ class PasswordActivity : AppCompatActivity() {
         // return the HashText
         return hashtext
     }
-
-
-
 
 }
