@@ -1,12 +1,12 @@
 package com.example.datacheck
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_email.*
+import kotlinx.android.synthetic.main.activity_breach_site.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -17,9 +17,27 @@ class BreachSiteActivity : AppCompatActivity() {
 
     lateinit var breachList: ArrayList<DataBreach>
     lateinit var adapter: BreachListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_breach_site)
+
+
+        search_bar.setIconifiedByDefault(false)
+        search_bar.requestFocus()
+
+        search_bar.setOnQueryTextListener(object: androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter.filter(newText)
+                return false
+            }
+
+        })
+
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://haveibeenpwned.com")
@@ -33,8 +51,8 @@ class BreachSiteActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<DataBreach>>, response: Response<List<DataBreach>>) {
 
                 breachList = response?.body() as ArrayList<DataBreach>
-                adapter = BreachListAdapter(breachList, this)
 
+                adapter = BreachListAdapter(breachList, this)
                 val recyclerView = findViewById<RecyclerView>(R.id.breach_recycler_view)
                 recyclerView.layoutManager = LinearLayoutManager(this@BreachSiteActivity)
                 recyclerView.adapter = adapter
