@@ -9,8 +9,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import java.util.*
 
-class BreachListAdapter(val breachList: ArrayList<DataBreach>, val itemClickListener: View.OnClickListener)
+class BreachListAdapter(val breachList: ArrayList<DataBreach>, val clickListener: (DataBreach, Int) -> Unit)
     : RecyclerView.Adapter<BreachListAdapter.ViewHolder>(), Filterable {
+
+
+    var breachFilterList = ArrayList<DataBreach>()
+
+    init {
+        breachFilterList = breachList
+    }
+
 
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val cardView = itemView.findViewById(R.id.card_view) as CardView
@@ -18,11 +26,6 @@ class BreachListAdapter(val breachList: ArrayList<DataBreach>, val itemClickList
         val imageView = cardView.findViewById(R.id.logoBreach) as ImageView
     }
 
-    var breachFilterList = ArrayList<DataBreach>()
-
-    init {
-        breachFilterList = breachList
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreachListAdapter.ViewHolder {
         val viewItem = LayoutInflater.from(parent.context)
@@ -32,11 +35,13 @@ class BreachListAdapter(val breachList: ArrayList<DataBreach>, val itemClickList
     }
 
     override fun onBindViewHolder(holder: BreachListAdapter.ViewHolder, position: Int) {
-        val breach = breachFilterList[position]
-        //holder.cardView.setOnClickListener(itemClickListener)
+        var item : DataBreach = breachFilterList[position]
+
+        holder.cardView.setOnClickListener { clickListener(item, position) }
+
         holder.cardView.tag = position
-        holder.titleView.text = breach.title
-        var logoUrl: String = breach.logoPath
+        holder.titleView.text = item.title
+        var logoUrl: String = item.logoPath
         Picasso.get().load(logoUrl).into(holder.imageView)
 
     }
