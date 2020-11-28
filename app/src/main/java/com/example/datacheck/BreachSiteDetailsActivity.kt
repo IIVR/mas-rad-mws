@@ -26,7 +26,6 @@ class BreachSiteDetailsActivity : AppCompatActivity() {
 
         Picasso.get().load(breach?.logoPath).into(breachLogo)
         breachTitle.text = breach?.title
-        breachDomain.text = breach?.domain
 
         setTextViewHTML(breachDescription, breach?.description)
 

@@ -11,22 +11,29 @@
         >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="160dp"
             android:layout_gravity="center"
             app:cardElevation="6dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
-                android:textSize="16dp"
-                android:background="#428DFF"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:textColor="@color/white"
-                android:textStyle="italic"
-                android:text=""
-                />
+                android:padding="20dp"
+                android:background="#428DFF">
+                <ImageView
+                    android:id="@+id/breachLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:minHeight="100dp"
+                    android:minWidth="100dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/shape"
+                    />
+
+            </LinearLayout>
+
 
         </androidx.cardview.widget.CardView>
 
@@ -44,11 +51,6 @@
                 android:orientation="vertical"
                 android:gravity="center"
                 android:padding="20dp">
-                <ImageView
-                    android:id="@+id/breachLogo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/email" />
 
                 <TextView
                     android:id="@+id/breachTitle"
@@ -57,16 +59,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text=""
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    android:textStyle="bold"/>
 
-                <TextView
-                    android:id="@+id/breachDomain"
-                    android:layout_marginTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text=""
-                    android:textSize="20dp"/>
 
                 <TextView
                     android:id="@+id/breachDescription"
@@ -77,9 +72,8 @@
                     android:text=""
                     android:textSize="20dp"
                     android:autoLink="web"
-                    android:linksClickable="true"/>
-
-
+                    android:linksClickable="true"
+                    android:layout_marginBottom="30dp"/>
 
 
             </LinearLayout>
