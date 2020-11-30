@@ -75,10 +75,6 @@ class BreachListAdapter(val breachList: ArrayList<DataBreach>, val clickListener
                 breachFilterList = results?.values as ArrayList<DataBreach>
                 notifyDataSetChanged()
             }
-
         }
     }
-
-
-
 }
