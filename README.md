@@ -14,7 +14,7 @@ lors d'une fuite de données.
 ## Demo
 
 <p align="center">
-  <img src="demo.gif" alt="Data check" />
+  <img src="demo.gif" alt="Data check" height="500" />
 </p>
 
 ##
