@@ -6,7 +6,7 @@
 
 ## Projet Mobile Web Services
 
-L'application permet via le service RESTful haveibeenpwned.com
+L'application permet via le service RESTful [haveibeenpwned.com](https://haveibeenpwned.com/API/v3)
 de contrôler si une adresse email ou un mot de passe à été exposé
 lors d'une fuite de données.
 
