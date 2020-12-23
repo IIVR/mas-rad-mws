@@ -14,8 +14,10 @@ lors d'une fuite de données.
 ## Demo
 
 <p align="center">
-  <img src="demo.gif" alt="Data check" height="500" />
+  <img src="demo.gif" alt="Data check" height="500"/>
 </p>
 
 ##
+
+[Report Bug](https://github.com/IIVR/mas-rad-mws/issues)
 
