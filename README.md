@@ -11,11 +11,24 @@ de contrôler si une adresse email ou un mot de passe à été exposé
 lors d'une fuite de données.
 
 
-## Demo
+## 📷 Demo
 
 <p align="center">
   <img src="demo.gif" alt="Data check" height="500"/>
 </p>
+
+## ⚙ Tech
+
+- Kotlin
+- Retrofit 2
+- GSON
+- Picasso
+- Material
+
+## 🎯 Requirements
+
+- minSdkVersion 16
+- targetSdkVersion 30
 
 ##
 
