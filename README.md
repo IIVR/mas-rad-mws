@@ -10,5 +10,12 @@ L'application permet via le service RESTful [haveibeenpwned.com](https://haveibe
 de contrôler si une adresse email ou un mot de passe à été exposé
 lors d'une fuite de données.
 
-## 
+
+## Demo
+
+<p align="center">
+  <img src="demo.gif" alt="Data check" />
+</p>
+
+##
 
