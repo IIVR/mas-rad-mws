@@ -38,14 +38,13 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_bar"
-            android:layout_width="match_parent"
+            android:layout_width="340dp"
             android:layout_height="wrap_content"
             app:iconifiedByDefault="false"
             app:queryBackground="@null"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp"
             android:layout_marginBottom="30dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/bg_search_view"
             />
 
         <androidx.cardview.widget.CardView

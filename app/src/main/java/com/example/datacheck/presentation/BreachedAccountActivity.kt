@@ -1,5 +1,6 @@
 package com.example.datacheck.presentation
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ class BreachedAccountActivity : AppCompatActivity(), View.OnClickListener {
 
         adapter = BreachListAdapter(breachList){ item: DataBreach, position: Int ->
             println("Clicked on item  ${item.title} at position $position")
+            showDetails(item)
         }
 
         val recyclerView = findViewById<RecyclerView>(R.id.breach_recycler_view)
@@ -32,6 +34,14 @@ class BreachedAccountActivity : AppCompatActivity(), View.OnClickListener {
         recyclerView.adapter = adapter
 
     }
+
+    fun showDetails(item: DataBreach) {
+
+        val intent = Intent(this, BreachSiteDetailsActivity::class.java)
+        intent.putExtra("breach", item)
+        startActivity(intent)
+    }
+
 
     override fun onClick(v: View) {
         if (v.tag != null){
