@@ -1,4 +1,4 @@
-package com.example.datacheck
+package com.example.datacheck.presentation
 
 import android.content.Context
 import android.graphics.Color
@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.datacheck.service.HIBPService
+import com.example.datacheck.R
 import kotlinx.android.synthetic.main.activity_password.*
 import retrofit2.Call
 import retrofit2.Callback

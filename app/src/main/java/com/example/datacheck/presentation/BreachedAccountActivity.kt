@@ -1,10 +1,13 @@
-package com.example.datacheck
+package com.example.datacheck.presentation
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datacheck.presentation.adapter.BreachListAdapter
+import com.example.datacheck.model.DataBreach
+import com.example.datacheck.R
 import java.util.*
 
 

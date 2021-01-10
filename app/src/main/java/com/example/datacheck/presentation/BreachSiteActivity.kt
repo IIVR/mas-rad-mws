@@ -1,4 +1,4 @@
-package com.example.datacheck
+package com.example.datacheck.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,10 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datacheck.*
+import com.example.datacheck.model.DataBreach
+import com.example.datacheck.presentation.adapter.BreachListAdapter
+import com.example.datacheck.service.HIBPService
 import kotlinx.android.synthetic.main.activity_breach_site.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,8 +53,8 @@ class BreachSiteActivity : AppCompatActivity() {
 
         call.enqueue(object : Callback<List<DataBreach>>, View.OnClickListener {
             override fun onResponse(
-                call: Call<List<DataBreach>>,
-                response: Response<List<DataBreach>>
+                    call: Call<List<DataBreach>>,
+                    response: Response<List<DataBreach>>
             ) {
 
                 breachList = response?.body() as ArrayList<DataBreach>
@@ -75,7 +79,7 @@ class BreachSiteActivity : AppCompatActivity() {
 
     }
 
-    fun showDetails(item:DataBreach) {
+    fun showDetails(item: DataBreach) {
 
         val intent = Intent(this, BreachSiteDetailsActivity::class.java)
         intent.putExtra("breach", item)

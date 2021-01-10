@@ -1,4 +1,4 @@
-package com.example.datacheck
+package com.example.datacheck.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.datacheck.R
+import com.example.datacheck.model.DataBreach
 import com.squareup.picasso.Picasso
 import java.util.*
 
@@ -27,14 +29,14 @@ class BreachListAdapter(val breachList: ArrayList<DataBreach>, val clickListener
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BreachListAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val viewItem = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_breach, parent, false)
 
         return ViewHolder(viewItem)
     }
 
-    override fun onBindViewHolder(holder: BreachListAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         var item : DataBreach = breachFilterList[position]
 
         holder.cardView.setOnClickListener { clickListener(item, position) }

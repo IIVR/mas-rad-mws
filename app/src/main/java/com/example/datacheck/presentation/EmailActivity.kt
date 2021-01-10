@@ -1,4 +1,4 @@
-package com.example.datacheck
+package com.example.datacheck.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import com.example.datacheck.model.DataBreach
+import com.example.datacheck.service.HIBPService
+import com.example.datacheck.R
 import kotlinx.android.synthetic.main.activity_email.*
 import kotlinx.android.synthetic.main.activity_email.resultText
 import kotlinx.android.synthetic.main.activity_email.resultTextDetails

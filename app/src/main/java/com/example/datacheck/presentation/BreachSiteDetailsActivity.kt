@@ -1,4 +1,4 @@
-package com.example.datacheck
+package com.example.datacheck.presentation
 
 import android.content.Intent
 import android.net.Uri
@@ -11,12 +11,13 @@ import android.text.style.URLSpan
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.datacheck.model.DataBreach
+import com.example.datacheck.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_breach_site_details.*
 
 
 class BreachSiteDetailsActivity : AppCompatActivity() {
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

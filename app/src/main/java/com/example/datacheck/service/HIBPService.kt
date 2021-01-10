@@ -1,7 +1,7 @@
-package com.example.datacheck
 
-import org.json.JSONArray
-import org.json.JSONObject
+package com.example.datacheck.service
+
+import com.example.datacheck.model.DataBreach
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -20,3 +20,12 @@ interface HIBPService {
     fun getAllBreaches(): Call<List<DataBreach>>
 
 }
+
+
+
+
+
+
+
+
+
