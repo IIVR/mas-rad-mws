@@ -12,7 +12,7 @@ interface HIBPService {
     @GET("range/{password}")
     fun getPasswords(@Path("password") password: String?): Call<String>
 
-    @Headers("hibp-api-key: c2ac5bddfeb5494fa2ccc8fa41784ddd")
+    @Headers("hibp-api-key: your-api-key")
     @GET("api/v3/breachedaccount/{email}?truncateResponse=false")
     fun getEmail(@Path("email") email: String?): Call<List<DataBreach>>
 
