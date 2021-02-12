@@ -11,7 +11,7 @@ de contrôler si une adresse email ou un mot de passe à été exposé
 lors d'une fuite de données.
 
 Pour le contrôle d'adresse email une [clé API](https://haveibeenpwned.com/API/Key) est nécessaire,
-à renseigner dans l'interface HIBPService
+à renseigner dans l'interface HIBPService.kt
 - @Headers("hibp-api-key: your-api-key")
 
 
