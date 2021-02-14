@@ -18,7 +18,6 @@ lors d'une fuite de données.
 Afin de garantir l’intégrité du mot de passe à vérifier, l’API applique le principe de 
 Hash [k-Anonymity](https://en.wikipedia.org/wiki/K-anonymity).
 
-
 ## 📷 Demo
 
 <p align="center">
